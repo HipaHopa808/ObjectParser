@@ -1,34 +1,11 @@
 package object_to_json_parser.object_parser;
 
 /**
- * Класс предназначен для парсинга экземпляров существующих классов Java в форматированную JSON-строку,
- * и преобразования форматированной JSON-строки в экземпляр существующего класса Java
- * */
-public final class ObjectParser {
-    /**
-     * Метод возвращает JSON-строку, отражающую состояние экземпляра существующего класса
-     * на момент его передачи в данный метод
-     * @param obj экземпляр существующего класса
-     * @return JSON-строка, отражающая состояние экземпляра существующего класса
-     */
-    public static String ObjectToJson(Object obj){
-        String objectJson = "";
-        //Логика создания JSON-строки из экземпляра существующего класса
-
-        return objectJson;
+ * Класс сохраняет состояние объекта в ObjectStatement и возвращает экземпляр класса ObjectStatement
+ */
+public class ObjectParser implements Parser<Object>{
+    @Override
+    public ObjectStatement parse(Object parseableObj) {
+        return null;
     }
-    /**
-     * Метод возвращает ссылку на экземпляр существующего класса, созданный по JSON-строке, отражающей состояние экземпляра существующего класса
-     * на момент его передачи в метод ObjectToJson
-     * @param json JSON-строка, отражающая состояние экземпляра существующего класса
-     * @return ссылка на экземпляр существующего класса, созданный по JSON-строке
-     */
-    public static Object JsonToObject(String json){
-        Object jsonObject = new Object();
-        //Логика создания экземпляра существующего класса из JSON-строки
-
-        return jsonObject;
-    }
-
-
 }
