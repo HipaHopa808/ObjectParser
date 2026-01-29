@@ -1,4 +1,4 @@
-package object_to_json_parser.object_parser;
+package object_parser;
 
 /**
  * Класс предназначен для парсинга экземпляров существующих классов Java в форматированную JSON-строку,
