@@ -1,4 +1,4 @@
-package object_to_json_parser.object_parser;
+package object_parser;
 
 /**
  * Класс сохраняет состояние объекта в ObjectStatement и возвращает экземпляр класса ObjectStatement
