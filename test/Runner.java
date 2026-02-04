@@ -7,9 +7,7 @@ import object_to_json_parser.object_parser.ObjectToJsonService;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
@@ -38,6 +36,11 @@ public class Runner {
         hashset.add(3);
         hashset.add(1);
         employee.setHashSet(hashset);
+        Map<Integer,Employee> numbers = new HashMap<>();
+        numbers.put(1,new Employee("Алиса", 31, address, "Чудесовна",cities));
+        numbers.put(2,new Employee("Никита", 40, address, "Балов",cities));
+        numbers.put(3,new Employee("Дима", 26, address, "Федоров",cities));
+        employee.setNumbers(numbers);
         employee.setMiddleName("Петрович");
         String jsonEmployee = ObjectToJsonService.objectToJson(employee);
         System.out.println(jsonEmployee);

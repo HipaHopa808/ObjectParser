@@ -58,11 +58,8 @@ public class ObjectParser implements JsonParser {
                             depth = 1;
                         }
                         //Формируем поле в формате JSON
-                        string.append("\n");
-                        string.append("  ".repeat(depth));
-                        string.append("\"");
-                        string.append(fieldName);
-                        string.append("\": ");
+                        addTabs(string,depth,false);
+                        addJsonField(string,fieldName);
                         //Формируем значение в формате JSON
                         JsonParser parser = getParser(fieldValue);
                         if (parser instanceof ValueParser) {
@@ -90,8 +87,7 @@ public class ObjectParser implements JsonParser {
                     repeatCount = depth - 1;
                 }
 
-                string.append("\n");
-                string.append("  ".repeat(repeatCount));
+                addTabs(string,depth,true);
                 string.append("}");
 
             } else {

@@ -1,8 +1,11 @@
 package object_to_json_parser.test;
 
+import java.util.Map;
+
 public class Employee extends Person{
     private String middleName;
     private City[] cities;
+    private Map<Integer, Employee> numbers;
 
     public Employee() {
     }
@@ -23,5 +26,9 @@ public class Employee extends Person{
 
     public void setCities(City[] cities) {
         this.cities = cities;
+    }
+
+    public void setNumbers(Map<Integer, Employee> numbers) {
+        this.numbers = numbers;
     }
 }

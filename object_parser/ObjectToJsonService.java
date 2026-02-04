@@ -71,6 +71,27 @@ public final class ObjectToJsonService {
         return jsonObject;
     }
 
+    protected static void addJsonField(StringBuilder string,Object fieldName){
+        string.append("\"");
+        string.append(fieldName);
+        string.append("\": ");
+    }
+
+    protected static void addTabs(StringBuilder string, int depth, boolean isClosed){
+        string.append("\n");
+        if(isClosed){
+            //Выравниваем закрывающую скобку относительно открывающей
+            int repeatCount = 0;
+            if (depth != 0) {
+                repeatCount = depth - 1;
+            }
+            string.append("  ".repeat(repeatCount));
+        } else {
+            string.append("  ".repeat(depth));
+        }
+
+    }
+
 
 
 
