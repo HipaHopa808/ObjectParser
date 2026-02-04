@@ -1,11 +1,6 @@
-package object_parser;
+package object_to_json_parser.object_parser;
 
-public class JsonParser implements Parser<String>{
-    private ObjectStatement objectStatement;
-    private String JSON;
+public interface JsonParser{
 
-    @Override
-    public ObjectStatement parse(String JSON) {
-        return null;
-    }
+    void parseToJson(Object obj,StringBuilder string,int depth);
 }
