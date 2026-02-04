@@ -1,0 +1,61 @@
+package object_to_json_parser.test;
+
+
+import object_to_json_parser.object_parser.ObjectToJsonService;
+
+
+import java.lang.reflect.Array;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class Runner {
+    public static void main(String[] args) {
+        City city = new City("Воронеж", Country.RUSSIA);
+        Address address = new Address(city);
+        Person person = new Person("Алиса", 23, address);
+        Class<?> personClass = person.getClass();
+        System.out.println(personClass.getSuperclass());
+
+        person.setCountry(Country.USA);
+//        String json = ObjectToJsonService.objectToJson(person);
+//        System.out.println(json);
+
+        City cityTwo = new City("Москва", Country.RUSSIA);
+        City cityThree = new City("Магадан", Country.RUSSIA);
+        City[] cities = {city, cityTwo, cityThree};
+        String dima = """
+                String like\\
+                bus stop
+                    take a "look"
+                """;
+        Employee employee = new Employee(dima, 32, address, "Иванов",cities);
+        Set hashset = new HashSet<>();
+        hashset.add(3);
+        hashset.add(2);
+        hashset.add(3);
+        hashset.add(1);
+        employee.setHashSet(hashset);
+        employee.setMiddleName("Петрович");
+        String jsonEmployee = ObjectToJsonService.objectToJson(employee);
+        System.out.println(jsonEmployee);
+        System.out.println(String.format("%04x",10));
+
+        Class<? extends Employee> aClass = employee.getClass();
+        try {
+            Method[] methods = aClass.getMethods();
+            Method setter = aClass.getMethod("setName", String.class);
+            setter.invoke(employee, "Дима");
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+        String string = "String like\nbus stop\n\ttake a look;\n";
+        System.out.println(string);
+//        System.out.println(employee.getName());
+//        System.out.println(aClass.getSuperclass().getName());
+
+
+    }
+}
