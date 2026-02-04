@@ -4,6 +4,8 @@ import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
 
+import static object_to_json_parser.object_parser.ObjectToJsonService.addTabs;
+
 public class ArrayParser implements JsonParser{
 
     @Override
@@ -11,6 +13,7 @@ public class ArrayParser implements JsonParser{
         string.append("[");
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
+            addTabs(string,depth,false);
             Object element = Array.get(obj, i);
             JsonParser parser = ObjectToJsonService.getParser(element);
             if (parser instanceof ValueParser){
@@ -23,6 +26,7 @@ public class ArrayParser implements JsonParser{
             }
         }
 
+        addTabs(string,depth,true);
         string.append("]");
 
     }
