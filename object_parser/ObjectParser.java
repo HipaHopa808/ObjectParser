@@ -33,11 +33,11 @@ public class ObjectParser implements JsonParser {
             for (Field declaredField : declaredFields) {
                 isHaveSetter = false;
                 fieldName = declaredField.getName();
-                mark: for (Method declaredMethod : declaredMethods) {
+                for (Method declaredMethod : declaredMethods) {
                     setterName = getSetterName(fieldName);
                     if (declaredMethod.getName().equals(setterName)) {
                         isHaveSetter = true;
-                        break mark;
+                        break;
                     }
                 }
                 //Если не один метод не совпал с именем сэттера, то выходим из цикла

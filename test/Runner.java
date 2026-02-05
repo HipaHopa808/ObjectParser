@@ -54,11 +54,70 @@ public class Runner {
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
-        String string = "String like\nbus stop\n\ttake a look;\n";
-        System.out.println(string);
-//        System.out.println(employee.getName());
-//        System.out.println(aClass.getSuperclass().getName());
+//        String string = "String like\nbus stop\n\ttake a look;\n";
+//        System.out.println(string);
+////        System.out.println(employee.getName());
+////        System.out.println(aClass.getSuperclass().getName());
+//        Box box = new Box("box", 23.0, 123L, Map.of("1", List.of("one", "two")));
+//        String json = ObjectToJsonService.objectToJson(box);
+//        System.out.println(json);
 
 
+    }
+
+    public static class Box {
+        private String name;
+        private double count;
+        private Long size;
+        private Map<String, List<String>> mapOfLists;
+
+        public Box(String name, double count, Long size, Map<String, List<String>> mapOfLists) {
+            this.name = name;
+            this.count = count;
+            this.size = size;
+            this.mapOfLists = mapOfLists;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public double getCount() {
+            return count;
+        }
+
+        public void setCount(double count) {
+            this.count = count;
+        }
+
+        public Long getSize() {
+            return size;
+        }
+
+        public void setSize(Long size) {
+            this.size = size;
+        }
+
+        public Map<String, List<String>> getMapOfLists() {
+            return mapOfLists;
+        }
+
+        public void setMapOfLists(Map<String, List<String>> mapOfLists) {
+            this.mapOfLists = mapOfLists;
+        }
+
+        @Override
+        public String toString() {
+            return "Box{" +
+                    "name='" + name + '\'' +
+                    ", count=" + count +
+                    ", size=" + size +
+                    ", mapOfLists=" + mapOfLists +
+                    '}';
+        }
     }
 }
