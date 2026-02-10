@@ -1,6 +1,5 @@
-package object_to_json_parser.object_parser;
+package object_to_json_parser.obj_to_json_service.object_parser;
 
-import java.lang.reflect.Array;
 import java.util.Collection;
 
 public class CollectionParser implements JsonParser {

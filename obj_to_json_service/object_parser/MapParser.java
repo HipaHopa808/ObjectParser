@@ -1,9 +1,9 @@
-package object_to_json_parser.object_parser;
+package object_to_json_parser.obj_to_json_service.object_parser;
 
 import java.util.Map;
 import java.util.Set;
 
-import static object_to_json_parser.object_parser.ObjectToJsonService.*;
+import static object_to_json_parser.obj_to_json_service.ObjectToJsonService.*;
 
 public class MapParser implements JsonParser{
 
