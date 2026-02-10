@@ -1,10 +1,9 @@
 package object_to_json_parser.test;
 
 
-import object_to_json_parser.object_parser.ObjectToJsonService;
+import object_to_json_parser.obj_to_json_service.ObjectToJsonService;
 
 
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;

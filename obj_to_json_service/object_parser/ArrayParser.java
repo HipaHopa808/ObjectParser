@@ -1,10 +1,10 @@
-package object_to_json_parser.object_parser;
+package object_to_json_parser.obj_to_json_service.object_parser;
+
+import object_to_json_parser.obj_to_json_service.ObjectToJsonService;
 
 import java.lang.reflect.Array;
-import java.util.Collection;
-import java.util.Map;
 
-import static object_to_json_parser.object_parser.ObjectToJsonService.addTabs;
+import static object_to_json_parser.obj_to_json_service.ObjectToJsonService.addTabs;
 
 public class ArrayParser implements JsonParser{
 
