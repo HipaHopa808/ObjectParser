@@ -26,11 +26,6 @@ public class ValueBuilder implements Builder {
         for (int i = index.getIndex(); i < jsonCharArray.length; i++) {
             letter = jsonCharArray[i];
             index.setIndex(i);
-            if (searchComma) {
-                if (letter == ',' || letter == '}') {
-                    break;
-                }
-            }
             if (letter == ':' && !(inValue || inString || inDigit || searchComma)) {
                 inValue = true;
             }
@@ -106,18 +101,27 @@ public class ValueBuilder implements Builder {
                 } else if (objectClass.isEnum()) {
 
                 } else if (objectClass == Boolean.class) {
+                    if(Character.isLetter(letter)){
+                        pattern.append(letter);
+                    }
 
-                    if (pattern.toString().equals("true")) {
+                    if (pattern.toString().contains("true")) {
                         value = Boolean.TRUE;
                         inValue = false;
                         searchComma = true;
-                    } else if (pattern.toString().equals("false")) {
+                    } else if (pattern.toString().contains("false")) {
                         value = Boolean.FALSE;
                         inValue = false;
                         searchComma = true;
                     }
 
 
+                }
+            }
+
+            if (searchComma) {
+                if (letter == ',' || letter == '}') {
+                    break;
                 }
             }
 

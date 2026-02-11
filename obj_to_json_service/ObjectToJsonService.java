@@ -82,7 +82,7 @@ public final class ObjectToJsonService {
         }
         //Логика создания экземпляра существующего класса из JSON-строки
         Builder builder = new ObjectBuilder();
-        jsonObject = builder.build(new CurrentIndex(0),jsonObject,json, objectClass);
+        jsonObject = builder.build(new CurrentIndex(0), jsonObject, json, objectClass);
 
         return jsonObject;
     }
@@ -116,7 +116,6 @@ public final class ObjectToJsonService {
         }
 
     }
-
 
 
 //    private static boolean isPattern(CurrentIndex index, String json, String pattern) {
@@ -199,8 +198,12 @@ public final class ObjectToJsonService {
     //Метод формирует имя сэттера
     //Добавить обработку имен сэттеров по правилам JavaBean (для булевых значений isName и т.п.)
     public static String getSetterName(String fieldName) {
+        if (fieldName.substring(0, 1).equals("is")) {
+            fieldName = fieldName.replaceFirst("is","");
+        }
         String fieldNameFirstLetter = fieldName.charAt(0) + "";
         String setterName = "set" + fieldName.replaceFirst(fieldNameFirstLetter, fieldNameFirstLetter.toUpperCase());
+
         return setterName;
     }
 
